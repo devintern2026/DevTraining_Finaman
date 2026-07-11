@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-base-50 text-ink-900 antialiased;
+  font-family: "Inter", sans-serif;
+}
+
+::selection {
+  background: #DBEAFE;
+  color: #1E40AF;
+}
+
+/* ─── Scrollbars ─────────────────────────────────────────── */
+.scroll-quiet::-webkit-scrollbar        { width: 4px; height: 4px; }
+.scroll-quiet::-webkit-scrollbar-thumb  { background: rgba(255,255,255,0.12); border-radius: 999px; }
+.scroll-quiet::-webkit-scrollbar-track  { background: transparent; }
+
+.scroll-quiet-light::-webkit-scrollbar        { width: 5px; height: 5px; }
+.scroll-quiet-light::-webkit-scrollbar-thumb  { background: #93C5FD; border-radius: 999px; }
+.scroll-quiet-light::-webkit-scrollbar-track  { background: transparent; }
+
+/* ─── Focus rings ────────────────────────────────────────── */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #1654C5;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── Typography helpers ─────────────────────────────────── */
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* ─── Skeleton shimmer ───────────────────────────────────── */
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #DBEAFE 25%, #EFF6FF 37%, #DBEAFE 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.8s linear infinite;
+}
+
+/* ─── Card hover lift ────────────────────────────────────── */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(22, 84, 197, 0.10);
+}
+
+/* ─── Premium Animations ─────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes expandDown {
+  from { opacity: 0; max-height: 0px; }
+  to   { opacity: 1; max-height: 480px; }
+}
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position: 200% 0; }
+}
+@keyframes pulse-primary {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(22,84,197,0.25); }
+  50%       { box-shadow: 0 0 0 6px rgba(22,84,197,0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes borderSlide {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+.animate-fade-up      { animation: fadeUp 0.22s ease-out both; }
+.animate-fade-in      { animation: fadeIn 0.18s ease-out both; }
+.animate-slide-left   { animation: slideInLeft 0.22s ease-out both; }
+.animate-slide-right  { animation: slideInRight 0.22s ease-out both; }
+.animate-expand-down  { animation: expandDown 0.25s ease-out both; }
+.animate-scale-in     { animation: scaleIn 0.18s ease-out both; }
+
+/* staggered children */
+.stagger > *:nth-child(1) { animation-delay: 0ms; }
+.stagger > *:nth-child(2) { animation-delay: 50ms; }
+.stagger > *:nth-child(3) { animation-delay: 100ms; }
+.stagger > *:nth-child(4) { animation-delay: 150ms; }
+.stagger > *:nth-child(5) { animation-delay: 200ms; }
+
+/* ─── Reduced motion ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
