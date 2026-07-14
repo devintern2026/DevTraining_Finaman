@@ -57,6 +57,11 @@ import EventList from "./pages/Events/EventList";
 import EventForm from "./pages/Events/EventForm";
 import LandingPage from "./pages/LandingPage";
 
+import MyAssets from "./pages/Assets/MyAssets";
+import RequestAsset from "./pages/Assets/RequestAsset";
+import ReportIssue from "./pages/Assets/ReportIssue";
+import AssetHistory from "./pages/Assets/AssetHistory";
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -117,6 +122,11 @@ export default function App() {
           <Route path="/events/calendar" element={<EventCalendar />} />
           <Route path="/events/list" element={<EventList />} />
           <Route path="/events/manage" element={<EventForm />} />
+
+          <Route path="/assets/my-assets" element={<MyAssets />} />
+          <Route path="/assets/request" element={<RequestAsset />} />
+          <Route path="/assets/report" element={<ReportIssue />} />
+          <Route path="/assets/history" element={<AssetHistory />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>

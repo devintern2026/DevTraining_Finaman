@@ -16,7 +16,8 @@ import {
   LuLifeBuoy,
   LuSettings,
   LuCalendarDays,
-  LuGlobe
+  LuGlobe,
+  LuPackage
 } from "react-icons/lu";
 
 const sidebarData = [
@@ -92,6 +93,35 @@ const sidebarData = [
       { id: "leave-calendar", label: "Leave Calendar", path: "calendar" },
     ],
   },
+
+  {
+  id: "assets",
+  label: "Asset Management",
+  icon: LuPackage,
+  basePath: "/assets",
+  items: [
+    {
+      id: "my-assets",
+      label: "My Assigned Assets",
+      path: "my-assets",
+    },
+    {
+      id: "request-asset",
+      label: "Request New Asset",
+      path: "request",
+    },
+    {
+      id: "report-issue",
+      label: "Report Issue / Return",
+      path: "report",
+    },
+    {
+      id: "asset-history",
+      label: "Asset History",
+      path: "history",
+    },
+  ],
+},
   {
     id: "payroll",
     label: "Payroll",
